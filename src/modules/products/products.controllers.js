@@ -15,6 +15,19 @@ export const createProductController = async (req, res, next) => {
 };
 
 
+// Get products with search functionality
+export const getProductsControllers = async (req, res, next) => {
+  try {
+    const result = await ProductService.getAllProductsfromDb(req.query);
+    res.status(200).json({
+      success: true,
+      message: "Products fetched successfully",
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
 
 
-export const ProductController={createProductController}
+export const ProductController={createProductController,getProductsControllers}
