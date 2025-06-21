@@ -10,6 +10,8 @@ const createProductIntoDb = async (productData) => {
 const getAllProductsfromDb = async (query) => {
   let filter = {};
 
+
+//  way -1---------------
   //    if (query.search) {
   //   filter.brand = {
   //     $regex: query.search,
@@ -17,6 +19,8 @@ const getAllProductsfromDb = async (query) => {
   //   };
   // }
 
+
+  //  way--*************************-2********************************
   if (query.search) {
     const searchRegex = {
       $regex: query.search,
@@ -28,7 +32,21 @@ const getAllProductsfromDb = async (query) => {
     };
   }
 
-  // name, brand , categorey
+  // *************************************************dynamic way  ********************************************
+
+//   if(query.search){
+//     const searchFields=["name","brand","category"];
+//     const SearchRegex={
+//       $regex:query.search,
+//       $options:'i'
+//     }
+//  filter.$or = searchFields.map(field => ({
+//       [field]: SearchRegex
+//     }));
+
+//   }
+
+// *************************************************dynamic way end *********************************
 
   const result = await Product.find(filter);
   return result;
