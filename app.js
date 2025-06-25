@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use('/api/v1/product', ProductRouter);
 app.use('/api/v1/blog', BlogRouter);
-app.use('/api/v1/globalsearc', globalSearchRouter);
+app.use('/api/v1/globalsearch', globalSearchRouter);
 
 // global
 app.use(globalErrorHandelar);

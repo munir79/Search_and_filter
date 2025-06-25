@@ -1,4 +1,4 @@
-import { globalSearchService } from "./search.service";
+import { globalSearchService } from "./search.service.js";
 
 
 export  const globalSearchControllers=async(req,res,next)=>{

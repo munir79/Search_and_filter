@@ -18,6 +18,7 @@ export const createProductController = async (req, res, next) => {
 // Get products with search functionality
 export const getProductsControllers = async (req, res, next) => {
   try {
+    
     const result = await ProductService.getAllProductsfromDb(req.query);
     res.status(200).json({
       success: true,
