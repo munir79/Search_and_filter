@@ -6,4 +6,11 @@ const createBlogIntoDb=async(payLoad)=>{
 }
 
 
- export  const BlogService={createBlogIntoDb}
+ const getAllBlogsFromDb = async () => {
+
+const blog=await Blog.find();
+return blog
+};
+
+
+ export  const BlogService={createBlogIntoDb,getAllBlogsFromDb}
